@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  keyCMF: "d84732da451856a978262c87a4f59ed3b6952b73",
+  apiCMF: "https://api.cmfchile.cl/api-sbifv3/recursos_api"
 };
 
 /*
