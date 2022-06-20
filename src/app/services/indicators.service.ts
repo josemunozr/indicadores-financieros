@@ -23,22 +23,23 @@ export class IndicatorsService {
     );
   }
 
-  getIndicatorDetailLast30Days(indicator: string): Observable<any> {
-    const period = this.getPeriodByIndicator(indicator);
-    return this.http.get(
-      `${environment.apiCMF}/${indicator}/periodo/${period}?apikey=${environment.keyCMF}&formato=json`
-    );
-  }
-  getIndicatorDetailLastYear(indicator: string): Observable<any> {
-    const period = this.getPeriodByIndicator(indicator);
+  getIndicatorDetailByRangeOfDays(indicator: string, cantPreviusDays: number): Observable<any> {
+    const period = this.getPeriodByIndicator(indicator,cantPreviusDays);
     return this.http.get(
       `${environment.apiCMF}/${indicator}/periodo/${period}?apikey=${environment.keyCMF}&formato=json`
     );
   }
 
-  private getPeriodByIndicator(indicator: string): string {
+  getIndicatorDetailCurrentYear(indicator: string): Observable<any> {
+    const currentYear = format(new Date(), 'yyyy');
+    return this.http.get(
+      `${environment.apiCMF}/${indicator}/${currentYear}?apikey=${environment.keyCMF}&formato=json`
+    );
+  }
+
+  private getPeriodByIndicator(indicator: string, cantPreviusDays: number): string {
     let period: string = '';
-    const currentDateWithout30Days = subDays(new Date(), 30);
+    const currentDateWithout30Days = subDays(new Date(), cantPreviusDays);
     const currentDateWithout1Month = subMonths(new Date(), 1);
     const currentDate = new Date();
 
@@ -60,10 +61,7 @@ export class IndicatorsService {
         break;
       case 'euro': // documentación de periodo para euro entrega error al consultar entre 2 fechas.
       case 'uf': // documentación de periodo para uf no se encuentra consulta entre 2 fechas.
-        period = `${format(currentDateWithout1Month, 'yyyy/MM')}/${format(
-          currentDate,
-          'yyyy/MM'
-        )}`;
+        period = `${format(currentDateWithout1Month, 'yyyy/MM')}/${format( currentDate, 'yyyy/MM' )}`;
         break;
     }
 
