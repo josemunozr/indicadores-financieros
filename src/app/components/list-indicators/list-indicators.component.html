@@ -1,8 +1,8 @@
 <p>list-indicators works!</p>
 
 <ul>
-  <li *ngFor="let item of listIndicators" [routerLink]="[item.name]">
-    {{item.indicator}}
-    <img src="assets/images/chart-line-solid.svg" alt="chart" width="20" (click)="handleShowChart(item)">
+  <li *ngFor="let item of listIndicators">
+    <p [routerLink]="[item.name]">{{item.indicator}}</p>
+    <img src="assets/images/chart-line-solid.svg" alt="chart" width="20" [routerLink]="['/list-indicators',item.name, 'detail']">
   </li>
 </ul>

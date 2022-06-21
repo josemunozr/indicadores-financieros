@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListIndicatorsComponent } from './components/list-indicators/list-indicators.component';
 import { DataListComponent } from './components/data-list/data-list.component';
+import { DetailIndicatorComponent } from './components/detail-indicator/detail-indicator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListIndicatorsComponent,
-    DataListComponent
+    DataListComponent,
+    DetailIndicatorComponent
   ],
   imports: [
     BrowserModule,

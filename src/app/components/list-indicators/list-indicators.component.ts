@@ -17,56 +17,6 @@ export class ListIndicatorsComponent implements OnInit {
     this.getListIndicators();
   }
 
-  // handleSelectDetail({ name, period }: IIndicator): void {
-  //   if (period === '30days') {
-  //     // this.getDetailLast30Days(name);
-  //   } else {
-  //     this.getDetailCurrentYear(name);
-  //   }
-  // }
-
-  handleShowChart({ name, period }: IIndicator): void {
-    // if (period === '30days') {
-    //   this.getDataIndicator(name);
-    // } else {
-    //   //this.getDetailCurrentYear(name);
-    // }
-  }
-
-  // private getDetailLast30Days(indicator: string): void {
-  //   this.indicatorsService.getIndicatorDetailByRangeOfDays(indicator, 30)
-  //     .subscribe({
-  //       next: resp => {
-  //         console.log(resp);
-  //       },
-  //       error: errorResp =>
-  //         console.info('getDetailLast30Days', errorResp.error.Mensaje)
-  //     });
-  // }
-
-  // private getDetailCurrentYear(indicator: string): void {
-  //   this.indicatorsService.getIndicatorDetailCurrentYear(indicator)
-  //     .subscribe({
-  //       next: resp => {
-  //         console.log(resp);
-  //       },
-  //       error: errorResp =>
-  //         console.info('getDetailCurrentYear', errorResp.error.Mensaje)
-  //     });
-  // }
-
-
-  // private getDataIndicator(indicator: string): void {
-  //   this.indicatorsService.getIndicatorDetailByRangeOfDays(indicator, 10)
-  //     .subscribe({
-  //       next: resp => {
-  //         console.log(resp);
-  //       },
-  //       error: errorResp =>
-  //         console.info('getDataIndicator', errorResp.error.Mensaje)
-  //     });
-  // }
-
   private getListIndicators(): void {
     this.indicatorsService
       .getListIndicators()
